@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{playlist.title}} | Records
+{% endblock title %}
+
+{% block content %}
+    <section class="wrap" style="padding-top:11rem">
+        <h1 class="display h-lg reveal">Records of <br/>{{playlist.title}}</h1>
+
+
+        {% if records %}
+        <div class="reveal" style="max-width: 900px; margin: 0 auto;">
+          <div style="display: flex; flex-direction: column;">
+            
+            {% for record in records %}
+              <div style="display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 0; border-bottom: 1px solid rgba(0,0,0,0.1); gap: 1rem;">
+                
+                <!-- Left: Number & Title/Details -->
+                <div style="display: flex; align-items: center; gap: 2rem;">
+
+                  <div>
+                    <h3 class="record-title" style="font-size: 1.3rem; margin-bottom: 0.3rem;">
+                      <a href="{% url 'record-detail' record.slug %}" style="text-decoration: none; color: inherit;">
+                        {{ record.title }}
+                      </a>
+                    </h3>
+                    
+                  </div>
+                </div>
+
+                <!-- Right: Duration & Action -->
+                <div style="display: flex; align-items: center; gap: 1.5rem;">
+                  <a class="btn" href="{% url 'record-detail' record.slug %}" style="padding: 0.5rem 1.2rem; font-size: 0.85rem;">Read</a>
+                </div>
+
+              </div>
+            {% endfor %}
+
+          </div>
+        </div>
+      {% else %}
+        <div style="text-align: center; padding: 3rem;" class="reveal">
+          <p class="lead">No records found in this playlist yet.</p>
+        </div>
+      {% endif %}
+        
+    </section>
+{% endblock content %}
