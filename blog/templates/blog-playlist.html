@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{profile.name}} | Blogs
+{% endblock title %}
+
+{% block content %}
+    <section class="wrap" style="padding-top:11rem">
+      <h1 class="display h-lg reveal">Blog Playlists</h1>
+      <p class="narrow center lead reveal" style="margin-top:2rem;margin-bottom:7rem">Click on specific playlist to get redirect record list page</p>
+
+      <div class="works-grid">
+
+        {% for playlist in playlists %}
+
+          <a class="record reveal" href="{% url 'playlist-records' playlist.slug %}">
+            <div class="record-art">
+              <span class="tag"><svg viewBox="0 0 28 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="6"/><circle cx="20" cy="8" r="6"/></svg>{{forloop.counter}}</span>
+              <div class="record-disc"></div>
+              {% if playlist.image %}
+              <div class="record-sleeve"><img src="{{playlist.image.url}}" alt="{{playlist.title}} image" loading="lazy" width="800" height="800" /></div>
+              {% endif %}
+            </div>
+            <h3 class="record-title">{{playlist.title}}</h3>
+          </a>
+
+        {% endfor %}
+        
+      </div>
+    </section>
+{% endblock content %}
