@@ -46,3 +46,7 @@ urlpatterns += [
 
     path("contact/", contact , name = "contact"),
 ]
+
+urlpatterns += [
+    path("blogs/", include("blog.urls"), name = "blog")
+]
