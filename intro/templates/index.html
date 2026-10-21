@@ -77,11 +77,36 @@ Ata Alahy Nishan | Software Engineer
         
         <div class="box-foot">
           <svg class="globe" viewBox="0 0 38 22" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="19" cy="11" rx="17" ry="9"/><ellipse cx="19" cy="11" rx="7" ry="9"/><path d="M2 11h34"/></svg>
-          <div class="barcode" data-barcode="EXP-07Y"></div>
+          <div class="barcode" data-barcode="EDUCATION-07Y"></div>
         </div>
       </div>
     </section>
 
+    {% endif %}
+
+    {% if skills %}
+    <!-- ===== Skills ===== -->
+    <section class="section wrap" id="skills">
+      <h2 class="display h-lg section-title reveal">My<br />Skills</h2>
+
+      <div class="narrow box reveal">
+        <div style="padding: 2rem;">
+          <div style="display: flex; flex-wrap: wrap; gap: 1rem;">
+            {% for skill in skills %}
+              <span class="btn" style="cursor: default; pointer-events: none;">
+                {% if skill.icon %}<img src="{{skill.image.url}}" alt="{{skill.name}}" style="width: 18px; height: 18px; margin-right: 8px; vertical-align: middle;" />{% endif %}
+                {{skill.name}} {% if skill.proficiency %} ({{skill.proficiency}}%){% endif %}
+              </span>
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="box-foot">
+          <svg class="globe" viewBox="0 0 38 22" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="19" cy="11" rx="17" ry="9"/><ellipse cx="19" cy="11" rx="7" ry="9"/><path d="M2 11h34"/></svg>
+          <div class="barcode" data-barcode="SKILLS-01"></div>
+        </div>
+      </div>
+    </section>
     {% endif %}
 
     {% comment %}
