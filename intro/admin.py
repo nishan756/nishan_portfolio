@@ -36,3 +36,7 @@ class WorkExperienceAdmin(admin.ModelAdmin):
 class MessageAdmin(admin.ModelAdmin):
     list_display = ["name",  "email", "is_read" ]
     list_filter = ["is_read"]
+
+@admin.register(Skill)
+class SkillAdmin(admin.ModelAdmin):
+    list_display = ["name", ]
