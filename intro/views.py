@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from .models import Project, WorkExperience, Education, Message
+from .models import Project, WorkExperience, Education, Message, Skill
 
 from .forms import MessageForm
 
@@ -11,9 +11,12 @@ def home(request):
 
     educations = Education.objects.all()
 
+    skills = Skill.objects.all()
+
     context = {
         "recent_projects":recent_projects,
-        "educations":educations
+        "educations":educations,
+        "skills":skills
     }
 
     return render(request, "index.html", context)
