@@ -4,6 +4,6 @@ __pycache__/
 
 .env
 
-media/
+files/
 
 db.sqlite3

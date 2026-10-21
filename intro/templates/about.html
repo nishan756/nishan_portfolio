@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block title %}
+About Me
+{% endblock title %}
+
+
+
+{% block content %}
+    <section class="wrap" style="padding-top:11rem">
+      <h1 class="display h-lg reveal" style="margin-bottom:6rem">About Me</h1>
+
+      <div class="split">
+
+        {% if profile.image %}
+        <div class="frame-wrap reveal">
+          <div class="barcode" data-barcode="NR-PORTRAIT"></div>
+          <div class="frame frame--portrait"><img src="{{profile.image.url}}" alt="Portrait of Nishan" width="896" height="1152" /></div>
+        </div>
+        {% endif %}
+
+        <div class="text reveal">
+          <p class="muted">{{profile.description | safe}}</p>
+          {% comment %}
+          <a class="btn" href="contact.html">Work with me</a>
+          {% endcomment %}
+        </div>
+      </div>
+    </section>
+
+    {% if experiences %}
+    <!-- ===== Experience ===== -->
+    <section class="section wrap">
+      <h2 class="display h-md section-title reveal">Experience</h2>
+
+      <div class="narrow box reveal" data-accordion="single">
+
+        {% for experience in experiences %}
+          <div class="acc-item">
+            <button class="acc-head">
+              <span class="cond">{{experience.designation}}<span class="sub">{{experience.company}}</span><span class="date">{{experience.started_at}} — {% if experience.end_at %}{{experience.end_at}}{% else %}Present{% endif %}</span></span>
+              <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 9l7 7 7-7"/></svg>
+            </button>
+            {% if experience.description %}
+            <div class="acc-body"><div><p>{{experience.description}}</p></div></div>
+            {% endif %}
+          </div>
+        {% endfor %}
+        
+        <div class="box-foot">
+          <svg class="globe" viewBox="0 0 38 22" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="19" cy="11" rx="17" ry="9"/><ellipse cx="19" cy="11" rx="7" ry="9"/><path d="M2 11h34"/></svg>
+          <div class="barcode" data-barcode="EXP-07Y"></div>
+        </div>
+      </div>
+    </section>
+
+    {% endif %}
+
+    {% comment %}
+    <!-- ===== FAQ ===== -->
+    <section class="section wrap">
+      <h2 class="display h-md section-title reveal">FAQ</h2>
+
+      <div class="narrow box reveal" data-accordion="single">
+        <div class="acc-item">
+          <button class="acc-head">
+            <span class="cond">How long does a project take?</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 9l7 7 7-7"/></svg>
+          </button>
+          <div class="acc-body"><div><p>A small website usually takes 3–5 weeks. Bigger builds or full brand projects take 6–10 weeks.</p></div></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-head">
+            <span class="cond">Do you work with clients abroad?</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 9l7 7 7-7"/></svg>
+          </button>
+          <div class="acc-body"><div><p>Yes — most of my clients are remote. We meet on video calls and keep everything in one shared board.</p></div></div>
+        </div>
+        <div class="acc-item">
+          <button class="acc-head">
+            <span class="cond">Can I update the site myself?</span>
+            <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 9l7 7 7-7"/></svg>
+          </button>
+          <div class="acc-body"><div><p>Absolutely. I hand over clean files and a short guide, and I'm around if you get stuck.</p></div></div>
+        </div>
+      </div>
+    </section>
+    {% endcomment %}
+{% endblock content %}

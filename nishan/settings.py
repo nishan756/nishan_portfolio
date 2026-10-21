@@ -71,6 +71,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'intro.context_processors.social_links',
             ],
         },
     },
@@ -127,6 +128,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
 
 STATIC_URL = 'static/'
+
+MEDIA_URL = '/media/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'static'
+]
+
+STATIC_ROOT = os.path.join(BASE_DIR / "files/staticfiles")
+
+MEDIA_ROOT = os.path.join(BASE_DIR / "files/media")
 
 
 # Email

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Projects
+{% endblock title %}
+
+{% block content %}
+    <section class="wrap" style="padding-top:11rem">
+      <h1 class="display h-lg reveal">All Works</h1>
+      <p class="narrow center lead reveal" style="margin-top:2rem;margin-bottom:7rem">Six records from the crate — websites, apps and brands made with stubborn care.</p>
+
+      <div class="works-grid">
+
+        {% for project in projects %}
+
+          <a class="record reveal" href="contact.html">
+            <div class="record-art">
+              <span class="tag"><svg viewBox="0 0 28 16" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="6"/><circle cx="20" cy="8" r="6"/></svg>{{forloop.counter}}</span>
+              <div class="record-disc"></div>
+              {% if project.image %}
+              <div class="record-sleeve"><img src="{{project.image.url}}" alt="{{project.title}} image" loading="lazy" width="800" height="800" /></div>
+              {% endif %}
+            </div>
+            <h3 class="record-title">{{project.title}}</h3>
+          </a>
+
+        {% endfor %}
+        
+      </div>
+    </section>
+
+    {% comment %}
+      <section class="section wrap center">
+        <h2 class="display h-lg reveal flicker">Got A Track<br />In Mind?</h2>
+        <div class="reveal" style="margin-top:3rem"><a class="btn" href="contact.html">Let's talk</a></div>
+      </section>
+    {% endcomment %}
+    
+{% endblock content %}

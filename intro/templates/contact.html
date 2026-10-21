@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Contact
+{% endblock title %}
+
+{% block content %}
+
+  <main>
+    <section class="wrap" style="padding-top:11rem">
+      <h1 class="display h-lg reveal flicker">Say Hello</h1>
+
+      <div class="contact-copy reveal" style="margin-top:3rem">
+        <p class="lead">Got a project, a wild idea or just want to swap playlists? <em>Drop me a line.</em></p>
+        <p class="muted">I reply to every message within two working days.</p>
+      </div>
+
+      <div class="cards">
+        <a class="card reveal" href="mailto:{{profile.email}}">
+          <div class="card-head">
+            <span class="cond">Email</span>
+            <svg width="26" height="20" viewBox="0 0 26 20" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="1" width="24" height="18"/><path d="M1 1l12 10L25 1"/></svg>
+          </div>
+          <p>{{profile.email}}</p>
+        </a>
+        <a class="card reveal" href="tel:{{profile.phone}}">
+          <div class="card-head">
+            <span class="cond">Phone</span>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 2h4l2 5-3 2a12 12 0 006 6l2-3 5 2v4a2 2 0 01-2 2A19 19 0 013 4a2 2 0 012-2z"/></svg>
+          </div>
+          <p>{{profile.phone}}</p>
+        </a>
+      </div>
+
+      <form method = "POST" class="form reveal" id="contact-form" novalidate>
+        {% csrf_token %}
+        
+        <div><label for="name">Your name</label><input id="name" name="name" type="text" autocomplete="name" required></div>
+        <div><label for="email">Your email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+        <div><label for="message">Message</label><textarea id="message" name="message" required></textarea></div>
+        <div><button class="btn" type="submit">Send message</button></div>
+        <p class="form-note muted" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+{% endblock content %}

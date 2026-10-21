@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %} {% endblock title %}</title>
+  <meta name="description" content="Nishan is an independent designer and front-end developer crafting raw, characterful websites and brands." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@500;600;700&family=JetBrains+Mono:wght@400;500&family=Rubik+Dirt&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+<body>
+  <div class="top-grime" aria-hidden="true"></div>
+
+  <nav class="nav" aria-label="Main">
+    <button class="nav-toggle" aria-expanded="false" aria-label="Toggle menu">Menu</button>
+    <ul>
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'projects' %}">Projects</a></li>
+      <li><a href="{% url 'about' %}">About</a></li>
+      <li><a href="{% url 'contact' %}">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+
+    {% block content %}
+
+    {% endblock content %}
+
+    </main>
+
+  <footer class="footer wrap">
+    <div class="footer-cols">
+      <div>
+        <h3>Pages</h3>
+        <ul>
+          <li><a class="link-line" href="{% url 'home' %}">Home</a></li>
+          <li><a class="link-line" href="{% url 'projects' %}">Projects</a></li>
+          <li><a class="link-line" href="{% url 'about' %}">About</a></li>
+          <li><a class="link-line" href="{% url 'contact' %}">Contact</a></li>
+        </ul>
+      </div>
+      <div class="right">
+        <h3>Socials</h3>
+        <ul>
+          {% for social in socials %}
+          <li><a class="link-line" href="{{social.url}}" target="_blank" rel="noopener">{{social.name}}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <p class="footer-bottom muted">© <span data-year>{% now 'Y'%}</span> {{profile.name}}. Developed By An Engineer</p>
+  </footer>
+
+  <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>
