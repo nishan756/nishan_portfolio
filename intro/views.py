@@ -55,3 +55,6 @@ def contact(request):
             return redirect("contact")
 
     return render(request, "contact.html")
+
+def music(request):
+    return render(request, "music.html")
