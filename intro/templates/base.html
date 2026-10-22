@@ -10,6 +10,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@500;600;700&family=JetBrains+Mono:wght@400;500&family=Rubik+Dirt&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  {% block css %}
+  {% endblock css%}
 </head>
 <body>
   <div class="top-grime" aria-hidden="true"></div>
@@ -20,6 +22,7 @@
       <li><a href="{% url 'home' %}">Home</a></li>
       <li><a href="{% url 'projects' %}">Projects</a></li>
       <li><a href="{% url 'blog-playlists' %}">Blogs</a></li>
+      <li><a href="{% url 'music' %}">Beyond The Code</a></li>
       <li><a href="{% url 'about' %}">About</a></li>
       <li><a href="{% url 'contact' %}">Contact</a></li>
     </ul>
