@@ -34,7 +34,7 @@ if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 
 
-from intro.views import home, projects, about, contact
+from intro.views import home, projects, about, contact, music
 
 urlpatterns += [
 
@@ -45,6 +45,8 @@ urlpatterns += [
     path("about/", about , name = "about"),
 
     path("contact/", contact , name = "contact"),
+
+    path("music/", music , name = "music"),
 ]
 
 urlpatterns += [
