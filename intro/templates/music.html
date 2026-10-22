@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+{{profile.name}} | Beyond The Code 
+{% endblock title %}
+
+{% block css %}
+    <link rel='stylesheet' href="{% static 'css/music.css' %}">
+{% endblock css %}
+
+{% block content %}
+<section id="music" class="music-section">
+    <div class="music-container">
+
+        <p class="music-eyebrow">BEYOND THE CODE</p>
+
+        <h2>My Favorite Songs<span>.</span></h2>
+
+        <p class="music-description">
+            A little music, a little inspiration.
+            Here are some of my all-time favorite songs.
+        </p>
+
+        <div class="spotify-player">
+            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1powTwdEsBySYqovLTGJcY?utm_source=generator&si=4109a24103034a11" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+
+        <a
+            href="https://open.spotify.com/embed/playlist/1powTwdEsBySYqovLTGJcY?utm_source=generator&si=4109a24103034a11"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="spotify-link">
+            Open playlist on Spotify ↗
+        </a>
+
+    </div>
+
+    <br/>
+
+    <div class="music-container">
+
+        <div class="spotify-player">
+            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4CHAqB9RhdkdW1zNYuIjcx?utm_source=generator&si=ce7c9c1644a7463a" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+
+        <a
+            href="https://open.spotify.com/embed/playlist/4CHAqB9RhdkdW1zNYuIjcx?utm_source=generator&si=ce7c9c1644a7463a"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="spotify-link">
+            Open playlist on Spotify ↗
+        </a>
+
+    </div>
+
+    <br/>
+
+    <div class="music-container">
+
+        <div class="spotify-player">
+            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1gdh5uo3TRK0Cfqr7jKIGn?utm_source=generator&si=8960ce124dc04d58" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+
+        <a
+            href="https://open.spotify.com/embed/playlist/1gdh5uo3TRK0Cfqr7jKIGn?utm_source=generator&si=8960ce124dc04d58"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="spotify-link">
+            Open playlist on Spotify ↗
+        </a>
+
+    </div>
+
+    <br/>
+
+    <div class="music-container">
+
+        <div class="spotify-player">
+            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/7GosuOMSGPoO2UEuQOTSJh?utm_source=generator&si=3b5f2dc1034d4e4d" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+
+        <a
+            href="https://open.spotify.com/embed/playlist/7GosuOMSGPoO2UEuQOTSJh?utm_source=generator&si=3b5f2dc1034d4e4d"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="spotify-link">
+            Open playlist on Spotify ↗
+        </a>
+
+    </div>
+</section>
+{% endblock content %}
