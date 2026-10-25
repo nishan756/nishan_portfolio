@@ -36,14 +36,16 @@ def blog_playlist_records(request, slug:str):
 
     return render(request, "playlist-records.html", context)
 
-def record_detail(request, slug:str):
+def record_detail(request, playlist:str, record:str):
 
     try:
 
-        record = BlogPlaylistRecord.objects.get(slug = slug)
+        record = BlogPlaylistRecord.objects.get(slug = record)
 
     except BlogPlaylistRecord.DoesNotExist:
 
         messages.info(request, "OOPS! Record not found")
+
+        return redirect('playlist-records', playlist);
 
     return render(request, "record-detail.html" , {"record":record})
