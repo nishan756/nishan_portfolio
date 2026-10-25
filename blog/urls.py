@@ -7,5 +7,5 @@ urlpatterns = [
 
     path("playlist-records/<str:slug>/", blog_playlist_records, name = "playlist-records"),
 
-    path("record/<str:slug>/", record_detail, name = "record-detail"),
+    path("playlist/<str:playlist>/<str:record>/", record_detail, name = "record-detail"),
 ]
