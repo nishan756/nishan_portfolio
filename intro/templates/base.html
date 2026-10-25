@@ -28,6 +28,17 @@
     </ul>
   </nav>
 
+  {% if messages %}
+    <div class="messages-container">
+      {% for message in messages %}
+        <div class="message-item {{ message.tags }}">
+          <span>{{ message }}</span>
+          <button type="button" onclick="this.parentElement.style.display='none'">&times;</button>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
   <main>
 
     {% block content %}
