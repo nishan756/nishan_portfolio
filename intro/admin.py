@@ -4,6 +4,11 @@ from .models import Profile, WorkExperience, Project, Skill, Social, Designation
 # Register your models here.
 
 
+admin.site.site_title = "Nishan's Admin"
+
+admin.site.site_header = "Nishan's Admin"
+
+
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
     list_display = ["title",  "github_repo_url", "live_url"]
