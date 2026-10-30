@@ -62,4 +62,6 @@ class BlogPlaylistRecord(models.Model):
 
     class Meta:
 
-        ordering = ["priority"]
+        ordering = ["playlist", "priority"]
+
+        unique_together = ["playlist","priority"]
