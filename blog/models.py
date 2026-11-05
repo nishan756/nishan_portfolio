@@ -45,6 +45,14 @@ class BlogPlaylistRecord(models.Model):
 
     priority = models.PositiveIntegerField()
 
+    class Status(models.TextChoices):
+
+        DRAFT = "draft", "Draft"
+
+        PUBLISHED = "published", "Published"
+
+    status = models.CharField(max_length = 10, choices = Status.choices, default = Status.DRAFT)
+
     created_at = models.DateTimeField(blank = True, null = True)
 
     def __str__(self):
