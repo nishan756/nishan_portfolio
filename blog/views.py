@@ -27,7 +27,7 @@ def blog_playlist_records(request, slug:str):
 
         return redirect("blog-playlists")
 
-    records = BlogPlaylistRecord.objects.filter(playlist = playlist)
+    records = BlogPlaylistRecord.objects.filter(playlist = playlist, status = "published")
 
     context = {
         "records":records,
