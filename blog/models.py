@@ -4,6 +4,17 @@ from django.utils.text import slugify
 
 from django_summernote.fields import SummernoteTextField
 
+
+def get_initial_playlist_priority():
+
+    last_playlist = BlogPlaylist.objects.last()
+
+    if last_playlist:
+
+        return last_playlist.priority + 1
+
+    return 0
+
 class BlogPlaylist(models.Model):
 
     slug = models.SlugField(blank = True, null = True)
@@ -12,7 +23,7 @@ class BlogPlaylist(models.Model):
 
     image = models.ImageField(upload_to = "blog_playlist_banners/" , blank = True , null = True)
 
-    priority = models.PositiveIntegerField()
+    priority = models.PositiveIntegerField(default = get_initial_playlist_priority)
 
     created_at = models.DateTimeField(blank = True, null = True)
 
@@ -30,7 +41,18 @@ class BlogPlaylist(models.Model):
     class Meta:
 
         ordering = ["priority"]
-    
+
+
+
+def get_initial_record_priority():
+
+    last_record = BlogPlaylistRecord.objects.last()
+
+    if last_record:
+
+        return last_record.priority + 1
+
+    return 0
 
 class BlogPlaylistRecord(models.Model):
     slug = models.SlugField(blank = True, null = True)
@@ -43,7 +65,7 @@ class BlogPlaylistRecord(models.Model):
 
     description = SummernoteTextField()
 
-    priority = models.PositiveIntegerField()
+    priority = models.PositiveIntegerField(default = get_initial_record_priority)
 
     class Status(models.TextChoices):
 
