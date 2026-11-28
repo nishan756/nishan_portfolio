@@ -4,6 +4,8 @@ from django.utils.text import slugify
 
 from django_summernote.fields import SummernoteTextField
 
+from tinymce.models import HTMLField
+
 
 def get_initial_playlist_priority():
 
@@ -63,7 +65,7 @@ class BlogPlaylistRecord(models.Model):
 
     image = models.ImageField(upload_to = "blog_images/",blank = True, null = True)
 
-    description = SummernoteTextField()
+    description = HTMLField()
 
     priority = models.PositiveIntegerField(default = get_initial_record_priority)
 
