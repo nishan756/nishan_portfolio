@@ -47,6 +47,8 @@ urlpatterns += [
     path("contact/", contact , name = "contact"),
 
     path("music/", music , name = "music"),
+
+    path("tinymce/", include("tinymce.urls")),
 ]
 
 urlpatterns += [
